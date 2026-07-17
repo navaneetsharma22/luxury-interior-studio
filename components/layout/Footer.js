@@ -42,7 +42,7 @@ export default function Footer() {
           {/* Column 1: Brand */}
           <div className="flex flex-col">
             <span className="font-serif text-3xl tracking-[0.15em] text-heading mb-6">
-              AUREVIA
+              LUXESPACE
             </span>
             <p className="text-muted-foreground text-[15px] font-sans font-light leading-relaxed max-w-xs">
               An award-winning luxury interior design studio crafting timeless, minimal, and sophisticated spaces for high-end residential and commercial projects globally.
@@ -71,7 +71,7 @@ export default function Footer() {
             <h4 className="font-serif text-lg text-heading mb-6 tracking-wide">Studio</h4>
             <ul className="flex flex-col gap-4 text-[15px] font-sans font-light text-muted-foreground">
               <li>
-                <a href="mailto:hello@aurevia.com" className="hover:text-heading transition-colors">hello@aurevia.com</a>
+                <a href="mailto:hello@luxespace.com" className="hover:text-heading transition-colors">hello@luxespace.com</a>
               </li>
               <li>
                 <a href="tel:+12125550198" className="hover:text-heading transition-colors">+1 (212) 555-0198</a>
@@ -91,15 +91,12 @@ export default function Footer() {
             <h4 className="font-serif text-lg text-heading mb-6 tracking-wide">Follow Us</h4>
             <nav className="flex flex-col gap-4">
               {['Instagram', 'Pinterest', 'LinkedIn', 'Behance'].map((platform) => (
-                <a 
+                <span 
                   key={platform} 
-                  href={`https://${platform.toLowerCase()}.com`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-fit text-[15px] font-sans font-light text-muted-foreground hover:text-heading hover:-translate-y-0.5 transition-all relative group"
+                  className="w-fit text-[15px] font-sans font-light text-muted-foreground hover:text-heading hover:-translate-y-0.5 transition-all cursor-default"
                 >
                   {platform}
-                </a>
+                </span>
               ))}
             </nav>
           </div>
@@ -111,7 +108,7 @@ export default function Footer() {
 
         {/* ─── Bottom Footer ─── */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 py-8 pb-[60px] text-[13px] font-sans font-light text-muted-foreground">
-          <p>© {new Date().getFullYear()} Aurevia Interiors. All Rights Reserved.</p>
+          <p>© {new Date().getFullYear()} LuxeSpace Interiors. All Rights Reserved.</p>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="hover:text-heading transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-heading transition-colors">Terms & Conditions</Link>

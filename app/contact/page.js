@@ -101,7 +101,7 @@ export default function ContactPage() {
           <span className="text-caption text-white/80 uppercase tracking-widest mb-4 block gsap-reveal">Contact Us</span>
           <h1 className="text-display-lg text-white font-serif mb-6 gsap-reveal">Get in Touch.</h1>
           <p className="text-body-lg text-white/90 gsap-reveal">
-            We look forward to discussing your next vision and how Aurevia can bring it to life.
+            We look forward to discussing your next vision and how LuxeSpace can bring it to life.
           </p>
         </div>
       </section>
@@ -117,8 +117,8 @@ export default function ContactPage() {
               <div className="gsap-reveal">
                 <h3 className="text-h4 font-serif mb-6">General Inquiries</h3>
                 <div className="flex flex-col gap-4 text-muted-foreground">
-                  <a href="mailto:studio@aurevia.com" className="flex items-center gap-4 hover:text-primary transition-colors">
-                    <Icon icon={Mail} size="sm" /> studio@aurevia.com
+                  <a href="mailto:studio@luxespace.com" className="flex items-center gap-4 hover:text-primary transition-colors">
+                    <Icon icon={Mail} size="sm" /> studio@luxespace.com
                   </a>
                   <a href="tel:+12125550198" className="flex items-center gap-4 hover:text-primary transition-colors">
                     <Icon icon={Phone} size="sm" /> +1 (212) 555-0198
@@ -129,8 +129,8 @@ export default function ContactPage() {
               <div className="gsap-reveal">
                 <h3 className="text-h4 font-serif mb-6">Press & Media</h3>
                 <div className="flex flex-col gap-4 text-muted-foreground">
-                  <a href="mailto:press@aurevia.com" className="flex items-center gap-4 hover:text-primary transition-colors">
-                    <Icon icon={Mail} size="sm" /> press@aurevia.com
+                  <a href="mailto:press@luxespace.com" className="flex items-center gap-4 hover:text-primary transition-colors">
+                    <Icon icon={Mail} size="sm" /> press@luxespace.com
                   </a>
                 </div>
               </div>
@@ -238,7 +238,7 @@ export default function ContactPage() {
                       onChange={handleChange}
                     />
                     <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-                      Subscribe to the Aurevia Journal for exclusive studio updates.
+                      Subscribe to the LuxeSpace Journal for exclusive studio updates.
                     </span>
                   </label>
 
@@ -323,7 +323,7 @@ export default function ContactPage() {
         <div className="absolute inset-0 w-full h-[120%] -top-[10%] will-change-transform z-0">
           <LuxuryImage 
             src="/images/hero-bg-2.jpg" 
-            alt="Aurevia Locations Map"
+            alt="LuxeSpace Locations Map"
             className="w-full h-full object-cover gsap-parallax absolute inset-0 grayscale opacity-40"
             wrapperClassName="w-full h-full bg-black"
             overlay={true}

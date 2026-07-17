@@ -275,7 +275,7 @@ export default function ServicesPage() {
       <section className="py-section px-container">
         <div className="container-content mx-auto">
           <div className="mb-16 gsap-reveal">
-            <h2 className="text-h2 font-serif mb-6">The Aurevia Standard</h2>
+            <h2 className="text-h2 font-serif mb-6">The LuxeSpace Standard</h2>
             <p className="text-body text-muted-foreground max-w-2xl">
               We do not compromise. Our discerning clients expect absolute perfection, and our studio is structured to deliver exactly that.
             </p>

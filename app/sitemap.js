@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const baseUrl = 'https://aurevia.com';
+  const baseUrl = 'https://luxespace.com';
   
   return [
     {

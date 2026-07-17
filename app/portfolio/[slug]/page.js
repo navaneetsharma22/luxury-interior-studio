@@ -53,7 +53,7 @@ const PROJECT_DATA = {
     { name: "Brushed Unlacquered Brass", image: "/images/portfolio-res-2.png" }
   ],
   testimonial: {
-    quote: "Aurevia didn't just redesign our home; they fundamentally changed how we experience our daily lives. The peace and clarity we feel walking through the door is indescribable.",
+    quote: "LuxeSpace didn't just redesign our home; they fundamentally changed how we experience our daily lives. The peace and clarity we feel walking through the door is indescribable.",
     author: "M. & S. Reynolds",
     title: "Homeowners"
   }

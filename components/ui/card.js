@@ -76,14 +76,17 @@ function FeatureCard({ title, description, className }) {
   )
 }
 
-// Team Card (Portrait image)
-function TeamCard({ image, name, role, className }) {
+// Team Card (Portrait image, rectangular)
+function TeamCard({ image, name, role, bio, className }) {
   return (
-    <div className={cn("group flex flex-col items-center text-center gap-4", className)}>
-      <LuxuryImage src={image} alt={name} aspectRatio="portrait" className="rounded-full w-48 h-48 mx-auto" hoverEffect="none" />
-      <div>
-        <h4 className="text-h5 font-serif">{name}</h4>
-        <p className="text-small text-muted-foreground">{role}</p>
+    <div className={cn("group flex flex-col gap-6 p-6 md:p-8 bg-background border border-border/40 rounded-2xl hover:border-primary/20 hover:-translate-y-2 hover:shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-500", className)}>
+      <div className="w-full aspect-[3/4] overflow-hidden rounded-xl">
+        <LuxuryImage src={image} alt={name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" wrapperClassName="w-full h-full" hoverEffect="none" />
+      </div>
+      <div className="flex flex-col gap-2 text-center md:text-left">
+        <h4 className="text-h4 font-serif text-heading">{name}</h4>
+        <p className="text-caption text-primary uppercase tracking-widest">{role}</p>
+        {bio && <p className="text-body text-muted-foreground mt-2">{bio}</p>}
       </div>
     </div>
   )

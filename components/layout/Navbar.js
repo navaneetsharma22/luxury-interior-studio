@@ -116,11 +116,11 @@ export default function Navbar() {
           <div className="flex shrink-0">
             <Link
               href="/"
-              aria-label="Aurevia Interiors – Home"
+              aria-label="LuxeSpace Interiors – Home"
               className="group relative z-50 flex items-center"
             >
               <span className={`font-serif uppercase tracking-[0.2em] text-xl transition-colors duration-300 ${useLightText ? "text-white" : "text-heading"}`}>
-                AUREVIA
+                LUXESPACE
               </span>
             </Link>
           </div>

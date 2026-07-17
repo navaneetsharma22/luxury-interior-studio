@@ -5,6 +5,6 @@ export default function robots() {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://aurevia.com/sitemap.xml',
+    sitemap: 'https://luxespace.com/sitemap.xml',
   }
 }
