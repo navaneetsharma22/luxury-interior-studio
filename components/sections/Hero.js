@@ -20,6 +20,7 @@ export default function Hero() {
   const headlineRef = useRef(null);
   const copyRef = useRef(null);
   const ctaRef = useRef(null);
+  const btnsRef = useRef(null);
   const stat1Ref = useRef(null);
   const stat2Ref = useRef(null);
   const stat3Ref = useRef(null);
@@ -47,7 +48,7 @@ export default function Hero() {
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
     // Ensure elements are initially hidden or positioned correctly before animation
-    gsap.set([headlineRef.current, copyRef.current, ctaRef.current, stat1Ref.current, stat2Ref.current, stat3Ref.current], { 
+    gsap.set([headlineRef.current, copyRef.current, ctaRef.current, btnsRef.current, stat1Ref.current, stat2Ref.current, stat3Ref.current], { 
       y: 30, 
       opacity: 0 
     });
@@ -72,7 +73,7 @@ export default function Hero() {
     }, "-=1.5")
 
     // C. Headline & Content Stagger
-    .to([headlineRef.current, copyRef.current, ctaRef.current], {
+    .to([headlineRef.current, copyRef.current, ctaRef.current, btnsRef.current], {
       y: 0,
       opacity: 1,
       duration: 1.2,
@@ -124,57 +125,74 @@ export default function Hero() {
     <section ref={sectionRef} className="relative min-h-[100svh] w-full flex flex-col md:flex-row overflow-hidden bg-background">
       
       {/* Left Column (Content) */}
-      <div className="w-full md:w-[45%] flex flex-col justify-center px-container py-section lg:pl-32 xl:pl-40 lg:pr-16 z-10">
+      <div className="w-full md:w-[50%] flex flex-col justify-center px-container py-section lg:pl-32 xl:pl-40 lg:pr-16 z-10 relative">
         
         {/* Main Text Content */}
         <div className="flex flex-col gap-6 max-w-xl relative z-10">
+          
+          {/* Decorative Tagline */}
+          <div ref={headlineRef} className="flex items-center gap-3 mb-2">
+            <span className="flex gap-1 text-accent font-bold text-lg leading-none">
+              |||
+            </span>
+            <span className="text-caption text-accent uppercase tracking-widest font-medium">
+              Where Luxury Meets Lifestyle
+            </span>
+          </div>
+
           <h1 
-            ref={headlineRef}
-            className="text-display-xl"
+            ref={copyRef}
+            className="text-display-xl text-heading font-serif leading-tight"
           >
-            Crafting Timeless Luxury Spaces.
+            Transform Your Living Space with Timeless Elegance
           </h1>
           
           <p 
-            ref={copyRef}
-            className="text-body-lg text-muted-foreground max-w-[45ch]"
+            ref={ctaRef}
+            className="text-body-lg text-muted-foreground max-w-[50ch] leading-relaxed"
           >
-            Award-winning interior architecture for the world&apos;s most discerning residences and boutique estates. We transform environments into living works of art.
+            At LuxeSpace Interiors, we create exquisite interiors that blend sophistication with comfort, tailored to reflect your unique personality and style. Our experienced designers and craftsmen ensure your living space is both beautiful and functional.
           </p>
 
-          <div ref={ctaRef} className="flex flex-col sm:flex-row gap-6 mt-8 items-start">
-            <Button size="lg" variant="primary">
-              Book a Consultation
+          <div ref={btnsRef} className="flex flex-col sm:flex-row gap-6 mt-6 items-start">
+            <Button size="lg" className="bg-[#E8E2D9] text-[#14352F] hover:bg-[#DDD8CF] border border-[#DDD8CF] font-semibold tracking-wide uppercase text-[12px] rounded-sm px-6 group transition-colors">
+              Explore Our Designs
+              <span className="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full border border-[#14352F] group-hover:bg-[#14352F] group-hover:text-[#E8E2D9] transition-all">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
             </Button>
-            <Button size="lg" variant="ghost" className="group">
-              Explore Portfolio
-              <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
-            </Button>
+            <button className="flex items-center gap-3 text-heading hover:text-heading/80 transition-colors duration-300 group h-12">
+              <span className="w-10 h-10 rounded-full bg-[#E8E2D9] text-[#14352F] flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-sm">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </span>
+              <span className="text-[13px] font-semibold tracking-wide">Watch Video</span>
+            </button>
           </div>
         </div>
 
         {/* Trust Indicators (Bottom Aligned) */}
         <div 
-          className="hidden md:flex flex-row gap-12 mt-auto pt-24"
+          className="hidden md:flex flex-row gap-12 mt-auto pt-24 border-t border-border"
+          style={{ paddingTop: "2rem", marginTop: "auto" }}
         >
           <div ref={stat1Ref}>
-            <div className="text-h4 font-serif mb-1">15+</div>
-            <div className="text-caption text-muted-foreground uppercase tracking-widest">Years of<br/>Excellence</div>
+            <div className="text-h3 font-serif mb-1 text-heading">20+</div>
+            <div className="text-caption text-muted-foreground uppercase tracking-widest">Years of<br/>Experience</div>
           </div>
           <div ref={stat2Ref}>
-            <div className="text-h4 font-serif mb-1">$100M+</div>
+            <div className="text-h3 font-serif mb-1 text-heading">500+</div>
             <div className="text-caption text-muted-foreground uppercase tracking-widest">Completed<br/>Projects</div>
           </div>
           <div ref={stat3Ref}>
-            <div className="text-h4 font-serif mb-1">Award-Winning</div>
-            <div className="text-caption text-muted-foreground uppercase tracking-widest">Design<br/>Studio</div>
+            <div className="text-h3 font-serif mb-1 text-heading">98%</div>
+            <div className="text-caption text-muted-foreground uppercase tracking-widest">Client<br/>Satisfaction</div>
           </div>
         </div>
 
       </div>
 
       {/* Right Column (Image Background / Bleed) */}
-      <div className="absolute inset-0 md:relative md:inset-auto md:w-[55%] h-[100svh] w-full overflow-hidden">
+      <div className="absolute inset-0 md:relative md:inset-auto md:w-[50%] h-[100svh] w-full overflow-hidden">
         
         {/* Mobile Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent md:hidden z-0" />
