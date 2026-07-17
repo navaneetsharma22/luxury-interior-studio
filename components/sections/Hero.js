@@ -125,10 +125,10 @@ export default function Hero() {
     <section ref={sectionRef} className="relative min-h-[100svh] w-full flex flex-col md:flex-row overflow-hidden bg-background">
       
       {/* Left Column (Content) */}
-      <div className="w-full md:w-[50%] flex flex-col justify-center px-container py-section lg:pl-32 xl:pl-40 lg:pr-16 z-10 relative">
+      <div className="w-full md:w-[50%] flex flex-col justify-center px-container pt-[120px] pb-8 lg:pl-32 xl:pl-40 lg:pr-16 z-10 relative">
         
         {/* Main Text Content */}
-        <div className="flex flex-col gap-6 max-w-xl relative z-10">
+        <div className="flex flex-col gap-10 max-w-xl relative z-10 mt-16 lg:mt-24">
           
           {/* Decorative Tagline */}
           <div ref={headlineRef} className="flex items-center gap-3 mb-2">
@@ -154,7 +154,7 @@ export default function Hero() {
             At LuxeSpace Interiors, we create exquisite interiors that blend sophistication with comfort, tailored to reflect your unique personality and style. Our experienced designers and craftsmen ensure your living space is both beautiful and functional.
           </p>
 
-          <div ref={btnsRef} className="flex flex-col sm:flex-row gap-6 mt-6 items-start">
+          <div ref={btnsRef} className="flex flex-col sm:flex-row gap-6 mt-2 items-start">
             <Button size="lg" className="bg-[#E8E2D9] text-[#14352F] hover:bg-[#DDD8CF] border border-[#DDD8CF] font-semibold tracking-wide uppercase text-[12px] rounded-sm px-6 group transition-colors">
               Explore Our Designs
               <span className="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full border border-[#14352F] group-hover:bg-[#14352F] group-hover:text-[#E8E2D9] transition-all">
@@ -170,22 +170,38 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Trust Indicators (Bottom Aligned) */}
+        {/* Trust Indicators (Bottom Aligned Cards) */}
         <div 
-          className="hidden md:flex flex-row gap-12 mt-auto pt-24 border-t border-border"
-          style={{ paddingTop: "2rem", marginTop: "auto" }}
+          className="hidden md:flex flex-row justify-between w-full mt-auto pt-10 pb-0 gap-6"
         >
-          <div ref={stat1Ref}>
-            <div className="text-h3 font-serif mb-1 text-heading">20+</div>
-            <div className="text-caption text-muted-foreground uppercase tracking-widest">Years of<br/>Experience</div>
+          {/* Card 1 */}
+          <div ref={stat1Ref} className="flex flex-col items-center justify-center text-center gap-3 flex-1 bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-black/[0.03] transition-transform hover:-translate-y-1 duration-500">
+            <div className="text-[2.5rem] xl:text-[3rem] font-serif text-heading leading-none font-light tracking-tight">
+              20<span className="text-primary/70 font-medium">+</span>
+            </div>
+            <div className="text-[10px] text-muted-foreground uppercase tracking-[0.2em] font-medium leading-relaxed">
+              Years of<br/>Experience
+            </div>
           </div>
-          <div ref={stat2Ref}>
-            <div className="text-h3 font-serif mb-1 text-heading">500+</div>
-            <div className="text-caption text-muted-foreground uppercase tracking-widest">Completed<br/>Projects</div>
+          
+          {/* Card 2 */}
+          <div ref={stat2Ref} className="flex flex-col items-center justify-center text-center gap-3 flex-1 bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-black/[0.03] transition-transform hover:-translate-y-1 duration-500">
+            <div className="text-[2.5rem] xl:text-[3rem] font-serif text-heading leading-none font-light tracking-tight">
+              500<span className="text-primary/70 font-medium">+</span>
+            </div>
+            <div className="text-[10px] text-muted-foreground uppercase tracking-[0.2em] font-medium leading-relaxed">
+              Completed<br/>Projects
+            </div>
           </div>
-          <div ref={stat3Ref}>
-            <div className="text-h3 font-serif mb-1 text-heading">98%</div>
-            <div className="text-caption text-muted-foreground uppercase tracking-widest">Client<br/>Satisfaction</div>
+
+          {/* Card 3 */}
+          <div ref={stat3Ref} className="flex flex-col items-center justify-center text-center gap-3 flex-1 bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-black/[0.03] transition-transform hover:-translate-y-1 duration-500">
+            <div className="text-[2.5rem] xl:text-[3rem] font-serif text-heading leading-none font-light tracking-tight">
+              98<span className="text-primary/70 font-medium">%</span>
+            </div>
+            <div className="text-[10px] text-muted-foreground uppercase tracking-[0.2em] font-medium leading-relaxed">
+              Client<br/>Satisfaction
+            </div>
           </div>
         </div>
 
