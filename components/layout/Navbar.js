@@ -108,7 +108,7 @@ export default function Navbar() {
         `}
       >
         <div className={`
-          max-w-[1440px] mx-auto w-full h-[88px] flex items-center justify-start gap-12 lg:gap-20 xl:gap-28 transition-all duration-500 ease-out
+          max-w-[1440px] mx-auto w-full h-[88px] flex items-center justify-between transition-all duration-500 ease-out relative
           ${pathname === "/" && !isScrolled ? "px-6 md:px-10 lg:pl-32 xl:pl-40 lg:pr-16" : "px-6 md:px-12 lg:px-20"}
         `}>
           
@@ -129,7 +129,7 @@ export default function Navbar() {
           <nav
             role="navigation"
             aria-label="Primary"
-            className="hidden lg:flex items-center gap-16 lg:gap-24 xl:gap-32"
+            className="hidden lg:flex items-center gap-16 lg:gap-24 xl:gap-32 absolute left-1/2 -translate-x-1/2"
           >
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
