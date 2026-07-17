@@ -21,10 +21,12 @@ export default function AboutPage() {
   useGSAP(() => {
     // Reveal all elements with .gsap-reveal class
     const revealElements = gsap.utils.toArray('.gsap-reveal');
+    
+    // Immediately hide all reveal elements (before first paint)
+    gsap.set(revealElements, { y: 50, opacity: 0 });
+
     revealElements.forEach((el) => {
-      gsap.fromTo(el, 
-        { y: 50, opacity: 0 },
-        {
+      gsap.to(el, {
           y: 0,
           opacity: 1,
           duration: 1,
@@ -245,20 +247,27 @@ export default function AboutPage() {
       </section>
 
       {/* 6. Company Statistics */}
-      <section className="py-[120px] px-container bg-background border-y border-border/40">
+      <section className="py-[120px] px-container bg-background">
         <div className="container-base mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8 md:divide-x divide-border/40">
+          <div className="flex flex-col md:flex-row justify-between w-full gap-6">
             {[
-              { target: "15", suffix: "+", label: "Years Experience" },
-              { target: "250", suffix: "+", label: "Projects Completed" },
-              { target: "98", suffix: "%", label: "Client Satisfaction" },
-              { target: "12", suffix: "", label: "Design Awards" }
+              { target: "20", suffix: "+", line1: "Years of", line2: "Experience" },
+              { target: "500", suffix: "+", line1: "Completed", line2: "Projects" },
+              { target: "98", suffix: "%", line1: "Client", line2: "Satisfaction" }
             ].map((stat, i) => (
-              <div key={i} className="flex flex-col items-center text-center gsap-reveal">
-                <div className="text-[3rem] md:text-[4rem] text-primary font-serif mb-4 leading-none">
-                  <span className="gsap-counter" data-target={stat.target} data-suffix={stat.suffix}>0</span>
+              <div 
+                key={i} 
+                className="flex flex-col items-center justify-center text-center gap-3 flex-1 bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-black/[0.03] transition-transform hover:-translate-y-1 duration-500 gsap-reveal"
+              >
+                <div className="text-[2.5rem] xl:text-[3rem] font-serif text-heading leading-none font-light tracking-tight">
+                  <span className="gsap-counter" data-target={stat.target} data-suffix={""}>0</span>
+                  <span className="text-primary/70 font-medium">{stat.suffix}</span>
                 </div>
-                <div className="text-caption text-muted-foreground uppercase tracking-widest">{stat.label}</div>
+                <div className="text-[10px] text-muted-foreground uppercase tracking-[0.2em] font-medium leading-relaxed">
+                  {stat.line1}
+                  <br />
+                  {stat.line2}
+                </div>
               </div>
             ))}
           </div>
@@ -266,21 +275,22 @@ export default function AboutPage() {
       </section>
 
       {/* 7. Team Preview */}
-      <section className="py-section px-container">
+      <section className="py-[160px] px-container bg-surface">
         <div className="container-base mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gsap-reveal">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gsap-reveal">
             <div>
               <span className="text-caption text-primary uppercase tracking-widest mb-4 block">The Artisans</span>
-              <h2 className="text-h2 font-serif">Our Leadership</h2>
+              <h2 className="text-h2 font-serif text-heading">Our Leadership</h2>
             </div>
-            <Button variant="outline" className="hidden md:inline-flex mt-6 md:mt-0">View All Team</Button>
+            <Button variant="outline" className="hidden md:inline-flex mt-6 md:mt-0 border-border/40 hover:bg-primary hover:text-primary-foreground hover:border-primary">View All Team</Button>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="gsap-reveal">
               <TeamCard 
                 name="Elias Vance"
                 role="Principal Architect"
+                bio="With over 20 years of experience shaping ultra-luxury estates globally, Elias brings an uncompromising vision of structural harmony to every project."
                 image="/images/hero-bg.png"
               />
             </div>
@@ -288,6 +298,7 @@ export default function AboutPage() {
               <TeamCard 
                 name="Sienna Roth"
                 role="Head of Interiors"
+                bio="Sienna's expertise lies in curating rare materials and bespoke furnishings, ensuring every texture contributes to a sanctuary of calm."
                 image="/images/hero-bg-2.png"
               />
             </div>
@@ -295,24 +306,49 @@ export default function AboutPage() {
               <TeamCard 
                 name="Julian Mercer"
                 role="Director of Sourcing"
+                bio="Julian travels the world to forge relationships with master artisans, sourcing the exclusive elements that define our signature aesthetic."
                 image="/images/hero-bg-4.png"
               />
             </div>
           </div>
-          <Button variant="outline" className="w-full mt-12 md:hidden">View All Team</Button>
+          <Button variant="outline" className="w-full mt-12 md:hidden border-border/40">View All Team</Button>
         </div>
       </section>
 
-      {/* 8. CTA */}
-      <section className="py-[120px] px-container bg-foreground text-background text-center">
-        <div className="container-content mx-auto gsap-reveal">
-          <h2 className="text-display-md font-serif mb-6">Ready to begin?</h2>
-          <p className="text-body-lg text-white/70 mb-12 max-w-xl mx-auto">
-            Schedule a private consultation to discuss your vision and discover how we can transform your space.
+      {/* 8. Featured Testimonial */}
+      <section className="py-[160px] px-container bg-background">
+        <div className="container-base mx-auto max-w-4xl gsap-reveal">
+          <TestimonialCard 
+            quote="Working with LuxeSpace was a revelation. They didn't just redesign our penthouse; they fundamentally changed how we experience our daily lives. The profound peace and clarity we feel walking through the door is indescribable."
+            author="A. & M. Sterling"
+            title="Tribeca Penthouse"
+            className="bg-transparent p-0 md:p-0 shadow-none border-none text-center"
+          />
+        </div>
+      </section>
+
+      {/* 9. CTA */}
+      <section className="py-[160px] px-container bg-foreground text-background text-center relative overflow-hidden">
+        {/* Subtle background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+        
+        <div className="container-content mx-auto gsap-reveal relative z-10">
+          <span className="text-caption text-primary uppercase tracking-widest mb-6 block">Begin Your Journey</span>
+          <h2 className="text-display-md font-serif mb-8 text-white">Ready to transform your space?</h2>
+          <p className="text-body-lg text-white/70 mb-12 max-w-xl mx-auto font-light leading-relaxed">
+            Schedule a private consultation with our principal architects to discuss your vision.
           </p>
-          <Button variant="primary" size="lg" className="bg-primary text-primary-foreground hover:bg-white hover:text-foreground">
-            Contact the Studio
-          </Button>
+          <div className="flex flex-col items-center gap-6">
+            <Button asChild variant="primary" size="lg" className="bg-primary text-primary-foreground hover:bg-white hover:text-foreground h-14 px-8 text-[15px]">
+              <Link href="/contact">
+                Contact the Studio
+              </Link>
+            </Button>
+            <Link href="/portfolio" className="text-caption text-white/50 hover:text-white transition-colors uppercase tracking-widest flex items-center gap-2 group">
+              View Our Work
+              <Icon icon={ArrowRight} size="sm" className="transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
         </div>
       </section>
 

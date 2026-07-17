@@ -70,10 +70,12 @@ export default function ProjectDetailsPage({ params }) {
   useGSAP(() => {
     // Reveal all elements with .gsap-reveal class
     const revealElements = gsap.utils.toArray('.gsap-reveal');
+    
+    // Immediately hide all reveal elements (before first paint)
+    gsap.set(revealElements, { y: 40, opacity: 0 });
+
     revealElements.forEach((el) => {
-      gsap.fromTo(el, 
-        { y: 40, opacity: 0 },
-        {
+      gsap.to(el, {
           y: 0,
           opacity: 1,
           duration: 1,
@@ -81,7 +83,7 @@ export default function ProjectDetailsPage({ params }) {
           scrollTrigger: {
             trigger: el,
             start: "top 85%",
-            toggleActions: "play none none reverse"
+            toggleActions: "play none none none"
           }
         }
       );

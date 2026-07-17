@@ -52,7 +52,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} scroll-smooth`}>
+    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body suppressHydrationWarning className="antialiased min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-1 flex flex-col">

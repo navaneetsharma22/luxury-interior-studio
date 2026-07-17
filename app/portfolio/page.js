@@ -21,7 +21,7 @@ const PORTFOLIO_ITEMS = [
   { id: 3, title: "Aman Tokyo Lobby", category: "Hospitality", image: "/images/service-detail-1.png", size: "medium" }, // Reused image due to rate limits
   { id: 4, title: "Boutique Flagship Milan", category: "Commercial", image: "/images/service-detail-2.png", size: "large" }, // Reused image due to rate limits
   { id: 5, title: "Private Estate Monaco", category: "Residential", image: "/images/services-hero.png", size: "medium" }, // Reused image due to rate limits
-  { id: 6, title: "Nobu Restaurant Kyoto", category: "Hospitality", image: "/images/hero-bg-2.jpg", size: "small" } // Reused image
+  { id: 6, title: "Nobu Restaurant Kyoto", category: "Hospitality", image: "/images/nobu_kyoto_restaurant.png", size: "small" } // Reused image
 ];
 
 const CATEGORIES = ["All", "Residential", "Commercial", "Hospitality"];
@@ -39,10 +39,12 @@ export default function PortfolioPage() {
   useGSAP(() => {
     // Reveal all elements with .gsap-reveal class
     const revealElements = gsap.utils.toArray('.gsap-reveal');
+    
+    // Immediately hide all reveal elements (before first paint)
+    gsap.set(revealElements, { y: 50, opacity: 0 });
+
     revealElements.forEach((el) => {
-      gsap.fromTo(el, 
-        { y: 50, opacity: 0 },
-        {
+      gsap.to(el, {
           y: 0,
           opacity: 1,
           duration: 1,
@@ -50,7 +52,7 @@ export default function PortfolioPage() {
           scrollTrigger: {
             trigger: el,
             start: "top 85%",
-            toggleActions: "play none none reverse"
+            toggleActions: "play none none none"
           }
         }
       );

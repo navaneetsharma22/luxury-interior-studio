@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils"
 
 /* --- Label --- */
 const Label = React.forwardRef(({ className, ...props }, ref) => (
-  <label ref={ref} className={cn("text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70", className)} {...props} />
+  <label ref={ref} className={cn("text-small uppercase tracking-widest text-muted-foreground mb-1 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70", className)} {...props} />
 ))
 Label.displayName = "Label"
 
@@ -13,7 +13,7 @@ const Input = React.forwardRef(({ className, type, hasError, ...props }, ref) =>
     <input
       type={type}
       className={cn(
-        "flex h-12 w-full rounded-none border-b border-border bg-transparent px-0 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:border-primary disabled:cursor-not-allowed disabled:opacity-50 transition-colors",
+        "flex h-12 w-full rounded-none border-b border-border/40 bg-transparent px-0 py-2 text-[15px] font-light ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground/50 focus-visible:outline-none focus-visible:border-primary disabled:cursor-not-allowed disabled:opacity-50 transition-colors",
         hasError && "border-error focus-visible:border-error",
         className
       )}
@@ -29,7 +29,7 @@ const Textarea = React.forwardRef(({ className, hasError, ...props }, ref) => {
   return (
     <textarea
       className={cn(
-        "flex min-h-[120px] w-full rounded-none border-b border-border bg-transparent px-0 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:border-primary disabled:cursor-not-allowed disabled:opacity-50 transition-colors resize-y",
+        "flex min-h-[120px] w-full rounded-none border-b border-border/40 bg-transparent px-0 py-2 text-[15px] font-light ring-offset-background placeholder:text-muted-foreground/50 focus-visible:outline-none focus-visible:border-primary disabled:cursor-not-allowed disabled:opacity-50 transition-colors resize-y",
         hasError && "border-error focus-visible:border-error",
         className
       )}
@@ -91,12 +91,12 @@ Switch.displayName = "Switch"
 /* --- Form Field Wrapper --- */
 function FormField({ label, helperText, error, success, className, children }) {
   return (
-    <div className={cn("flex flex-col gap-2", className)}>
+    <div className={cn("flex flex-col gap-1", className)}>
       {label && <Label className={error ? "text-error" : ""}>{label}</Label>}
       {children}
-      {error && <p className="text-caption text-error">{error}</p>}
-      {success && !error && <p className="text-caption text-success">{success}</p>}
-      {helperText && !error && !success && <p className="text-caption text-muted-foreground">{helperText}</p>}
+      {error && <p className="text-caption text-error mt-1">{error}</p>}
+      {success && !error && <p className="text-caption text-success mt-1">{success}</p>}
+      {helperText && !error && !success && <p className="text-caption text-muted-foreground mt-1">{helperText}</p>}
     </div>
   )
 }

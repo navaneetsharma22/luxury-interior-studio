@@ -164,26 +164,26 @@ export default function Hero() {
           {/* Decorative Tagline */}
           <div
             ref={headlineRef}
-            className="flex items-center gap-3 mb-2 mt-[90px]"
+            className="flex items-center gap-3 mb-2 mt-[90px] opacity-0"
           >
-            <span className="flex gap-1 text-accent font-bold text-lg leading-none">
+            <span className="flex gap-1 text-white md:text-accent font-bold text-lg leading-none">
               |||
             </span>
-            <span className="text-caption text-accent uppercase tracking-widest font-medium">
+            <span className="text-caption text-white md:text-accent uppercase tracking-widest font-medium">
               Where Luxury Meets Lifestyle
             </span>
           </div>
 
           <h1
             ref={copyRef}
-            className="text-display-xl text-heading font-serif leading-tight mt-[30px]"
+            className="text-[3rem] sm:text-[4rem] md:text-display-xl text-white md:text-heading font-serif leading-[1.15] md:leading-tight mt-[30px] opacity-0"
           >
             Transform Your Living Space with Timeless Elegance
           </h1>
 
           <p
             ref={ctaRef}
-            className="text-[#14352F]/80 text-[20px] leading-relaxed font-sans font-light mt-[90px]"
+            className="text-white/90 md:text-[#14352F]/80 text-[20px] leading-relaxed font-sans font-light mt-[90px] opacity-0"
           >
             At LuxeSpace Interiors, we create exquisite interiors that blend
             sophistication with comfort, tailored to reflect your unique
@@ -193,7 +193,7 @@ export default function Hero() {
 
           <div
             ref={btnsRef}
-            className="flex flex-col sm:flex-row gap-6 mt-[65px] items-center"
+            className="flex flex-col sm:flex-row gap-6 mt-[65px] items-center opacity-0"
           >
             <Button
               size="lg"
@@ -213,21 +213,6 @@ export default function Hero() {
                 </svg>
               </span>
             </Button>
-            <button className="flex items-center gap-3 text-heading hover:text-heading/80 transition-colors duration-300 group h-12">
-              <span className="w-10 h-10 rounded-full bg-[#E8E2D9] text-[#14352F] flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-sm">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <polygon points="5 3 19 12 5 21 5 3" />
-                </svg>
-              </span>
-              <span className="text-[13px] font-semibold tracking-wide">
-                Watch Video
-              </span>
-            </button>
           </div>
         </div>
 
@@ -236,7 +221,7 @@ export default function Hero() {
           {/* Card 1 */}
           <div
             ref={stat1Ref}
-            className="flex flex-col items-center justify-center text-center gap-3 flex-1 bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-black/[0.03] transition-transform hover:-translate-y-1 duration-500"
+            className="flex flex-col items-center justify-center text-center gap-3 flex-1 bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-black/[0.03] transition-transform hover:-translate-y-1 duration-500 opacity-0"
           >
             <div className="text-[2.5rem] xl:text-[3rem] font-serif text-heading leading-none font-light tracking-tight">
               20<span className="text-primary/70 font-medium">+</span>
@@ -282,16 +267,18 @@ export default function Hero() {
 
       {/* Right Column (Image Background / Bleed) */}
       <div className="absolute inset-0 md:relative md:inset-auto md:w-[50%] w-full overflow-hidden">
-        {/* Mobile Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent md:hidden z-0" />
+        {/* Mobile Dark Overlay for White Text */}
+        <div className="absolute inset-0 bg-black/50 md:hidden z-0" />
 
         <div
           ref={imageWrapperRef}
           className="w-full h-full will-change-transform relative"
+          style={{ clipPath: "inset(0 100% 0 0)" }}
         >
           <div
             ref={imageRef}
             className="absolute inset-0 w-full h-[120%] -top-[10%] will-change-transform"
+            style={{ transform: "scale(1.15)" }}
           >
             {images.map((src, index) => (
               <div
@@ -316,7 +303,7 @@ export default function Hero() {
       {/* Scroll Cue */}
       <div
         ref={scrollCueRef}
-        className="absolute bottom-8 left-8 md:left-16 flex flex-col items-center gap-4 z-20"
+        className="absolute bottom-8 left-8 md:left-16 flex flex-col items-center gap-4 z-20 opacity-0"
       >
         <span className="text-caption text-muted-foreground tracking-widest uppercase origin-bottom-left -rotate-90 translate-y-full whitespace-nowrap mb-24 md:mb-16">
           Scroll to explore

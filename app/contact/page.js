@@ -9,6 +9,7 @@ import { FormField, Input, Textarea, Radio, Checkbox } from "@/components/ui/for
 import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/common/icon";
 import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -30,10 +31,12 @@ export default function ContactPage() {
   useGSAP(() => {
     // Reveal all elements with .gsap-reveal class
     const revealElements = gsap.utils.toArray('.gsap-reveal');
+    
+    // Immediately hide all reveal elements (before first paint)
+    gsap.set(revealElements, { y: 50, opacity: 0 });
+
     revealElements.forEach((el) => {
-      gsap.fromTo(el, 
-        { y: 50, opacity: 0 },
-        {
+      gsap.to(el, {
           y: 0,
           opacity: 1,
           duration: 1,
@@ -41,7 +44,7 @@ export default function ContactPage() {
           scrollTrigger: {
             trigger: el,
             start: "top 85%",
-            toggleActions: "play none none reverse"
+            toggleActions: "play none none none"
           }
         }
       );
@@ -91,7 +94,7 @@ export default function ContactPage() {
           <LuxuryImage 
             src="/images/services-hero.png" // Fallback luxury image
             alt="Get in Touch"
-            className="w-full h-full object-cover gsap-parallax absolute inset-0 grayscale opacity-80"
+            className="w-full h-full object-cover gsap-parallax absolute inset-0 opacity-80"
             wrapperClassName="w-full h-full bg-black"
             overlay={true}
             priority
@@ -244,8 +247,7 @@ export default function ContactPage() {
 
                   <Button 
                     type="submit" 
-                    variant="primary" 
-                    className="w-full md:w-auto mt-4 min-w-[200px]"
+                    className="w-full md:w-auto mt-8 bg-primary hover:bg-primary/90 text-primary-foreground min-w-[220px] h-14 rounded-md text-[13px] tracking-widest uppercase transition-colors"
                     disabled={formStatus.submitted}
                   >
                     {formStatus.submitted ? "Inquiry Sent" : "Submit Inquiry"}
@@ -324,7 +326,7 @@ export default function ContactPage() {
           <LuxuryImage 
             src="/images/hero-bg-2.jpg" 
             alt="LuxeSpace Locations Map"
-            className="w-full h-full object-cover gsap-parallax absolute inset-0 grayscale opacity-40"
+            className="w-full h-full object-cover gsap-parallax absolute inset-0 opacity-40"
             wrapperClassName="w-full h-full bg-black"
             overlay={true}
           />
@@ -334,8 +336,10 @@ export default function ContactPage() {
           <p className="text-body-lg text-white/70 mb-8 max-w-xl mx-auto gsap-reveal">
             Our teams are ready to deploy globally. We oversee projects in North America, Europe, and the Middle East.
           </p>
-          <Button variant="outline" className="text-white border-white/30 hover:bg-white hover:text-black gsap-reveal">
-            View Global Portfolio
+          <Button asChild variant="outline" className="text-white border-white/30 hover:bg-white hover:text-black gsap-reveal h-14 px-8 text-[13px] uppercase tracking-widest rounded-md mt-4">
+            <Link href="/portfolio">
+              View Global Portfolio
+            </Link>
           </Button>
         </div>
       </section>

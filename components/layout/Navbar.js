@@ -34,9 +34,13 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
+    
+    // Check immediately on mount and route change
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -99,16 +103,16 @@ export default function Navbar() {
         aria-label="Main Navigation"
         className={`
           fixed top-0 left-0 z-50
-          transition-all duration-500 ease-out
           ${pathname === "/" && !isScrolled ? "right-auto w-full md:w-[50%]" : "right-0 w-full"}
           ${isScrolled
             ? "bg-background/85 backdrop-blur-md border-b border-border/50"
             : "bg-transparent border-b border-transparent"
           }
         `}
+        style={{ transitionProperty: 'background-color, border-color, backdrop-filter', transitionDuration: '500ms', transitionTimingFunction: 'ease-out' }}
       >
         <div className={`
-          max-w-[1440px] mx-auto w-full h-[88px] flex items-center justify-between transition-all duration-500 ease-out relative
+          max-w-[1440px] mx-auto w-full h-[88px] flex items-center justify-between relative
           ${pathname === "/" && !isScrolled ? "px-6 md:px-10 lg:pl-32 xl:pl-40 lg:pr-16" : "px-6 md:px-12 lg:px-20"}
         `}>
           

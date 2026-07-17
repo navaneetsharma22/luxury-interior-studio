@@ -51,10 +51,12 @@ export default function HomeContent() {
   useGSAP(() => {
     // Reveal all elements with .gsap-reveal class
     const revealElements = gsap.utils.toArray('.gsap-reveal');
+    
+    // Immediately hide all reveal elements (before first paint)
+    gsap.set(revealElements, { y: 50, opacity: 0 });
+
     revealElements.forEach((el) => {
-      gsap.fromTo(el, 
-        { y: 50, opacity: 0 },
-        {
+      gsap.to(el, {
           y: 0,
           opacity: 1,
           duration: 1.2,
@@ -464,11 +466,11 @@ export default function HomeContent() {
           <p className="text-body-lg text-white/70 mb-12 max-w-xl mx-auto">
             Our waitlist is currently open for full-scale residential and commercial commissions for the upcoming year.
           </p>
-          <Link href="/contact">
-            <Button variant="primary" size="lg" className="bg-primary text-primary-foreground hover:bg-white hover:text-foreground">
+          <Button asChild variant="primary" size="lg" className="bg-primary text-primary-foreground hover:bg-white hover:text-foreground">
+            <Link href="/contact">
               Inquire Now
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
       </section>
 
