@@ -129,7 +129,7 @@ export default function Navbar() {
           <nav
             role="navigation"
             aria-label="Primary"
-            className="hidden lg:flex items-center gap-6 xl:gap-8"
+            className="hidden lg:flex items-center gap-10 lg:gap-12 xl:gap-16"
           >
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
